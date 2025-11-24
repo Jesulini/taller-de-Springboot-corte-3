@@ -1,0 +1,55 @@
+.glass-nav {
+  background: rgba(20, 20, 40, 0.6);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(155, 0, 255, 0.4);
+}
+
+.neon-text {
+  color: #d000ff;
+  text-shadow: 0 0 12px #d000ff;
+}
+
+.nav-link.active,
+.nav-link:hover {
+  color: #c400ff !important;
+}
+
+.contact-box {
+  max-width: 600px;
+  margin: auto;
+}
+
+.glass-card {
+  background: rgba(40, 0, 70, 0.4);
+  border-radius: 16px;
+  border: 1px solid rgba(200, 0, 255, 0.3);
+  box-shadow: 0 0 15px rgba(200, 0, 255, 0.3);
+}
+
+.input-neon {
+  background: rgba(15, 0, 25, 0.7);
+  border: 1px solid #a300ff;
+  color: white;
+  box-shadow: 0 0 10px rgba(150, 0, 255, 0.3);
+}
+
+.input-neon:focus {
+  border-color: #ff00ff;
+  box-shadow: 0 0 15px #ff00ff;
+}
+
+.btn-neon {
+  background: transparent;
+  border: 2px solid #c400ff;
+  color: #c400ff;
+}
+.btn-neon:hover {
+  background: #c400ff;
+  color: white;
+  box-shadow: 0 0 15px #c400ff;
+}
+
+.neon-title {
+  text-shadow: 0 0 20px #c400ff;
+  color: #d200ff;
+}
