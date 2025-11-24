@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Catálogo - World of the Games</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/catalogo.css">
+</head>
+
+<body class="bg-dark text-white">
+
+<!-- NAV -->
+<nav class="navbar navbar-expand-lg navbar-dark glass-nav shadow-sm">
+  <div class="container">
+    <a class="navbar-brand fw-bold neon-text" href="#">World of the Games</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="menu">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="/">Inicio</a></li>
+        <li class="nav-item"><a class="nav-link active" href="/catalogo">Catálogo</a></li>
+        <li class="nav-item"><a class="nav-link" href="/contacto">Contacto</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container my-5">
+  <h1 class="neon-title text-center mb-4">Catálogo de Videojuegos</h1>
+
+  <div class="row g-4">
+    <!-- VIDEOJUEGOS AUTOMÁTICOS -->
+  </div>
+</div>
+
+<!-- MODAL -->
+<div class="modal fade" id="modalJuego" tabindex="-1">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content glass-card p-3 text-white">
+      <div class="modal-header border-0">
+        <h4 id="modalTitulo" class="neon-text"></h4>
+        <button class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <img id="modalImagen" class="img-fluid mb-3 rounded neon-border">
+        <p id="modalDescripcion"></p>
+        <h5 class="neon-text mt-3">Detalles:</h5>
+        <p id="modalDetalles"></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="text-center text-white py-3 mt-5">
+  <p class="mb-0 small opacity-75">© 2025 World of the Games.</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+ const catalogoJuegos = [
+  {
+    title: 'Grand Theft Auto V',
+    imageUrl: 'https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/271590/header.jpg',
+    genre: 'Acción / Mundo Abierto',
+    platforms: 'PC, PS4, PS5, Xbox One, Xbox Series X',
+    releaseDate: '17 de septiembre, 2013',
+    developer: 'Rockstar Games',
+    ageRating: 'M (17+)',
+    description: `Explora Los Santos, una gigantesca ciudad inspirada en Los Ángeles, llena de crimen, negocios turbios y acción explosiva. En GTA V vivirás la historia de tres protagonistas con vidas cruzadas, cada uno con sus propios conflictos y motivaciones. El mundo abierto ofrece misiones, actividades, vehículos modificables, secretos y un vasto modo online donde podrás crear tu propio imperio criminal.`
+  },
+  {
+    title: 'Minecraft',
+    imageUrl: 'https://www.nintendo.com/eu/media/images/10_share_images/games_15/nintendo_switch_4/2x1_NSwitch_Minecraft.jpg',
+    genre: 'Construcción / Supervivencia',
+    platforms: 'PC, PS4, PS5, Xbox, Switch, Mobile',
+    releaseDate: '18 de noviembre, 2011',
+    developer: 'Mojang Studios',
+    ageRating: 'E10+',
+    description: `Crea, construye y explora mundos generados de manera infinita. Recolecta recursos, enfréntate a criaturas nocturnas y desarrolla tu propio refugio. Minecraft ofrece total libertad creativa, permitiendo construir desde casas simples hasta enormes ciudades. Con modo supervivencia, creativo, multijugador y miles de mods, las posibilidades son ilimitadas.`
+  },
+  {
+    title: 'Fortnite',
+    imageUrl: 'https://disney.images.edge.bamgrid.com/ripcut-delivery/v2/variant/disney/65AC8D9A21712BE3BC6503B8AD94FFC964AA07C2BD8637419855CDF21DCC1292/compose?format=webp&width=2560',
+    genre: 'Battle Royale',
+    platforms: 'PC, PS4, PS5, Xbox, Switch, Mobile',
+    releaseDate: '21 de julio, 2017',
+    developer: 'Epic Games',
+    ageRating: 'T (13+)',
+    description: `Conviértete en el último jugador en pie en combates frenéticos donde la construcción y la estrategia son la clave. Fortnite es famoso por sus eventos en vivo, skins temáticas, colaboraciones con películas, artistas y cómics. Su estilo colorido y dinámico lo ha convertido en un ícono de la cultura gamer moderna.`
+  },
+  {
+    title: 'League of Legends',
+    imageUrl: 'https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2052230/header.jpg',
+    genre: 'MOBA',
+    platforms: 'PC',
+    releaseDate: '27 de octubre, 2009',
+    developer: 'Riot Games',
+    ageRating: 'T (13+)',
+    description: `Participa en intensas batallas 5v5 donde deberás dominar a tu campeón, controlar objetivos clave y superar al equipo enemigo. League of Legends es uno de los esports más importantes del mundo, con cientos de personajes, estrategias y estilos de juego.`
+  },
+  {
+    title: 'Valorant',
+    imageUrl: 'https://www.riotgames.com/darkroom/1440/8d5c497da1c2eeec8cffa99b01abc64b:5329ca773963a5b739e98e715957ab39/ps-f2p-val-console-launch-16x9.jpg',
+    genre: 'Shooter Táctico',
+    platforms: 'PC',
+    releaseDate: '2 de junio, 2020',
+    developer: 'Riot Games',
+    ageRating: 'T (13+)',
+    description: `Juego de disparos táctico 5v5 que combina precisión, estrategia y habilidades especiales. Cada agente posee poderes únicos que redefinen el combate. La comunicación y el trabajo en equipo son esenciales para lograr la victoria en partidas intensas y competitivas.`
+  },
+  {
+    title: 'Call of Duty: Warzone',
+    imageUrl: 'https://image.api.playstation.com/vulcan/ap/rnd/202503/2819/346190abf755e3883d1353fbc8d8ccb7e1acf076f1138d6b.jpg',
+    genre: 'Shooter / Battle Royale',
+    platforms: 'PC, PS4, PS5, Xbox One, Xbox Series X',
+    releaseDate: '10 de marzo, 2020',
+    developer: 'Infinity Ward / Activision',
+    ageRating: 'M (17+)',
+    description: `Un battle royale de ritmo rápido con armas realistas, vehículos y modos especiales. Warzone ofrece mapas enormes, tiroteos intensos y una jugabilidad táctica donde cada partida es diferente. Ideal para los amantes de la acción militar.`
+  },
+  {
+    title: 'FIFA 25',
+    imageUrl: 'https://i.ytimg.com/vi_webp/4079wdNXuX8/maxresdefault.webp',
+    genre: 'Deportes / Fútbol',
+    platforms: 'PC, PS5, Xbox Series X',
+    releaseDate: '2024',
+    developer: 'EA Sports',
+    ageRating: 'E',
+    description: `La experiencia de fútbol más realista del mercado. Controla equipos, compite en ligas, juega modo carrera y domina Ultimate Team. Con gráficos mejorados, jugabilidad refinada y animaciones fluidas, FIFA 25 sigue siendo el rey del fútbol virtual.`
+  },
+  {
+    title: 'Elden Ring',
+    imageUrl: 'https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1245620/header.jpg',
+    genre: 'RPG / Mundo Abierto',
+    platforms: 'PC, PS4, PS5, Xbox One, Xbox Series X',
+    releaseDate: '25 de febrero, 2022',
+    developer: 'FromSoftware',
+    ageRating: 'M (17+)',
+    description: `Explora un vasto mundo oscuro lleno de criaturas colosales, jefes desafiantes y secretos antiguos. Elden Ring combina libertad de exploración con combate profundo y exigente, ofreciendo una experiencia inolvidable creada por Hidetaka Miyazaki y George R. R. Martin.`
+  },
+  {
+    title: 'The Legend of Zelda: Tears of the Kingdom',
+    imageUrl: 'https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1938010/header.jpg',
+    genre: 'Aventura / Mundo Abierto',
+    platforms: 'Nintendo Switch',
+    releaseDate: '12 de mayo, 2023',
+    developer: 'Nintendo',
+    ageRating: 'E10+',
+    description: `Acompaña a Link en una nueva aventura por Hyrule, explorando islas flotantes y utilizando habilidades para modificar el entorno. Con libertad total para crear, resolver acertijos y combatir enemigos, Tears of the Kingdom redefine la creatividad en los videojuegos.`
+  },
+  {
+    title: 'Red Dead Redemption 2',
+    imageUrl: 'https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1174180/header.jpg',
+    genre: 'Aventura / Mundo Abierto',
+    platforms: 'PC, PS4, Xbox One',
+    releaseDate: '26 de octubre, 2018',
+    developer: 'Rockstar Games',
+    ageRating: 'M (17+)',
+    description: `Vive la historia de Arthur Morgan, un forajido atrapado entre la lealtad y la supervivencia. Explora un lejano oeste extenso y vivo lleno de actividades, personajes memorables y narrativa profunda. Uno de los mundos abiertos más detallados jamás creados.`
+  },
+  {
+    title: 'Cyberpunk 2077',
+    imageUrl: 'https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1091500/header.jpg',
+    genre: 'RPG / Futurista',
+    platforms: 'PC, PS5, Xbox Series X',
+    releaseDate: '10 de diciembre, 2020',
+    developer: 'CD Projekt Red',
+    ageRating: 'M (17+)',
+    description: `Adéntrate en Night City, una metrópolis futurista llena de crimen, conspiraciones y tecnología avanzada. Personaliza tu personaje, modifica tu cuerpo con implantes cibernéticos y elige decisiones que afectarán el rumbo de la historia.`
+  },
+  {
+    title: 'God of War Ragnarök',
+    imageUrl: 'https://image.api.playstation.com/vulcan/ap/rnd/202207/1117/qpCTTb74VvcbqDjxkBmY4i1G.jpg',
+    genre: 'Acción / Aventura',
+    platforms: 'PS4, PS5',
+    releaseDate: '9 de noviembre, 2022',
+    developer: 'Santa Monica Studio',
+    ageRating: 'M (17+)',
+    description: `Kratos y Atreus enfrentan el destino y los dioses nórdicos en una aventura emocional y frenética. Con combates espectaculares, narrativa profunda y escenarios impresionantes, Ragnarök se convierte en un título imprescindible.`
+  },
+  {
+    title: 'Apex Legends',
+    imageUrl: 'https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1172470/header.jpg',
+    genre: 'Battle Royale / Shooter',
+    platforms: 'PC, PS4, PS5, Xbox, Switch',
+    releaseDate: '4 de febrero, 2019',
+    developer: 'Respawn Entertainment',
+    ageRating: 'T (13+)',
+    description: `Battle royale de héroes con habilidades únicas. Apex Legends destaca por su movilidad fluida, combates intensos y personajes carismáticos. Ideal para quienes buscan acción rápida con un enfoque táctico.`
+  },
+  {
+    title: 'The Witcher 3: Wild Hunt',
+    imageUrl: 'https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/292030/header.jpg',
+    genre: 'RPG / Fantasía',
+    platforms: 'PC, PS4, PS5, Xbox One, Xbox Series X, Switch',
+    releaseDate: '19 de mayo, 2015',
+    developer: 'CD Projekt Red',
+    ageRating: 'M (17+)',
+    description: `Encarnas a Geralt de Rivia, un cazador de monstruos que viaja por un mundo lleno de decisiones difíciles, batallas épicas y personajes memorables. Es uno de los RPG más completos y aclamados de todos los tiempos.`
+  },
+  {
+    title: 'Apex Legends',
+    imageUrl: 'https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/1172470/header.jpg',
+    genre: 'Shooter / Battle Royale',
+    platforms: 'PC, PS4, PS5, Xbox, Switch',
+    releaseDate: '4 de febrero, 2019',
+    developer: 'Respawn Entertainment',
+    ageRating: 'T (13+)',
+    description: `Juego de disparos en equipos con personajes únicos llamados Leyendas. Cada personaje posee habilidades especiales que cambian completamente la estrategia del combate.`
+  },
+  {
+    title: 'Hogwarts Legacy',
+    imageUrl: 'https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/990080/header.jpg',
+    genre: 'RPG / Fantasía',
+    platforms: 'PC, PS5, PS4, Xbox Series X, Xbox One, Switch',
+    releaseDate: '10 de febrero, 2023',
+    developer: 'Avalanche Software',
+    ageRating: 'T (13+)',
+    description: `Explora el castillo de Hogwarts como nunca antes. Toma clases, aprende hechizos, descubre secretos, doma criaturas mágicas y crea tu propio destino dentro del mundo mágico del siglo XIX.`
+  },
+  {
+    title: 'Apex Legends Mobile',
+    imageUrl: 'https://i.ytimg.com/vi/9yZcYQleitQ/maxresdefault.jpg',
+    genre: 'Shooter / Battle Royale',
+    platforms: 'Mobile',
+    releaseDate: '2022',
+    developer: 'Respawn',
+    ageRating: 'T (13+)',
+    description: `La experiencia del famoso battle royale llevada a dispositivos móviles con controles optimizados y contenido exclusivo para la plataforma.`
+  },
+  {
+    title: 'Overwatch 2',
+    imageUrl: 'https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/2357570/header.jpg',
+    genre: 'Shooter / Héroes',
+    platforms: 'PC, PS4, PS5, Xbox, Switch',
+    releaseDate: '4 de octubre, 2022',
+    developer: 'Blizzard Entertainment',
+    ageRating: 'T (13+)',
+    description: `Un shooter por equipos donde cada héroe tiene habilidades únicas que requieren coordinación y estrategia. Con modos competitivos, eventos por temporada y un estilo visual vibrante.`
+  },
+  {
+    title: 'Among Us',
+    imageUrl: 'https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/945360/header.jpg',
+    genre: 'Party Game / Deduction',
+    platforms: 'PC, PS4, PS5, Xbox, Switch, Mobile',
+    releaseDate: '15 de junio, 2018',
+    developer: 'Innersloth',
+    ageRating: 'E10+',
+    description: `Trabaja con tu tripulación, completa tareas o siembra el caos como impostor. Among Us es un juego social lleno de engaños, risas y discusiones épicas. Perfecto para jugar con amigos.`
+  }
+];
+
+
+// Pintar cards dinámicamente
+let contenedor = document.querySelector(".row");
+catalogoJuegos.forEach((j, i) => {
+  contenedor.innerHTML += `
+    <div class="col-md-4">
+      <div class="game-card glass-card p-3">
+        <img src="${j.imageUrl}" class="img-fluid rounded mb-3 neon-border">
+        <h4 class="neon-text">${j.title}</h4>
+        <p>${j.description.substring(0, 120)}...</p>
+        <button class="btn btn-neon w-100 mt-2"
+                onclick="verMas(${i})">Ver más</button>
+      </div>
+    </div>`;
+});
+
+// Función para mostrar modal con todos los detalles
+function verMas(i) {
+  const j = catalogoJuegos[i];
+  document.getElementById("modalTitulo").innerText = j.title;
+  document.getElementById("modalImagen").src = j.imageUrl;
+  document.getElementById("modalDescripcion").innerText = j.description;
+  document.getElementById("modalDetalles").innerText = 
+    `Género: ${j.genre}\nPlataformas: ${j.platforms}\nFecha de lanzamiento: ${j.releaseDate}\nDesarrollador: ${j.developer}\nClasificación: ${j.ageRating}`;
+
+  let modal = new bootstrap.Modal(document.getElementById("modalJuego"));
+  modal.show();
+}
+</script>
+
+</body>
+</html>
