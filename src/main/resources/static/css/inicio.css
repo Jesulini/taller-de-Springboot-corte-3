@@ -1,0 +1,88 @@
+/* ===========================
+   World of the Games - Neon Style
+   =========================== */
+
+/* Fuente gamer opcional */
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ---------------------------
+   NAVBAR GLASS & NEON
+---------------------------- */
+.glass-nav {
+    background: rgba(20, 20, 40, 0.6);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(155, 0, 255, 0.4);
+}
+
+.navbar-brand,
+.nav-link {
+    transition: 0.3s ease;
+}
+
+/* Neon morado */
+.neon-text {
+    color: #c400ff;
+    text-shadow: 0 0 8px #c400ff, 0 0 15px #8000ff;
+}
+
+.nav-link:hover {
+    color: #c400ff !important;
+    text-shadow: 0 0 8px #c400ff;
+}
+
+.nav-link.active {
+    color: #c400ff !important;
+}
+
+/* ---------------------------
+   HERO SECTION
+---------------------------- */
+.hero-section {
+    padding: 80px 0;
+    background: linear-gradient(180deg, #0b0014, #0d0018, #11001f);
+}
+
+.neon-title {
+    color: #d200ff;
+    text-shadow: 0 0 10px #d200ff, 0 0 25px #8a00ff;
+}
+
+/* Fade suave */
+.fade-text {
+    opacity: 0.85;
+    transition: 0.3s ease;
+}
+.fade-text:hover {
+    opacity: 1;
+}
+
+/* Imagen con borde neon */
+.neon-border {
+    border: 3px solid #b300ff;
+    box-shadow: 
+        0 0 8px #b300ff,
+        0 0 15px #8000ff,
+        0 0 30px #4e0080;
+    transition: 0.3s ease;
+}
+.neon-border:hover {
+    transform: scale(1.02);
+    box-shadow: 
+        0 0 10px #ff00ff,
+        0 0 20px #b300ff,
+        0 0 40px #8000ff;
+}
+
+/* ---------------------------
+   FOOTER
+---------------------------- */
+footer {
+    background: rgba(10, 0, 20, 0.7);
+    backdrop-filter: blur(6px);
+    border-top: 1px solid rgba(180, 0, 255, 0.3);
+}
+footer p {
+    color: #d9c6ff;
+}

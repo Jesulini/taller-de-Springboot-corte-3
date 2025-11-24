@@ -1,4 +1,4 @@
 com\tienda\videojuegos\service\VideojuegoService.class
-com\tienda\videojuegos\VideojuegosApplication.class
 com\tienda\videojuegos\controller\VideojuegoController.class
 com\tienda\videojuegos\model\Videojuego.class
+com\tienda\videojuegos\VideojuegosApplication.class
